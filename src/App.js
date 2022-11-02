@@ -1,10 +1,13 @@
-import Test from "./Test";
+import { Route, Routes } from "react-router-dom";
+
+import { Detail, Home } from "./pages";
+
 function App() {
   return (
-    <div>
-      hi
-      <Test tt={"asdf"}></Test>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/:id" element={<Detail />} />
+    </Routes>
   );
 }
 
