@@ -1,28 +1,22 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 
+import getCars from "../../apis/getCars";
 import CarItem from "./CarItem";
 
 const CarList = () => {
-  const getCars = async () => {
-    const { data } = await axios.get(
-      "https://preonboarding.platdev.net/api/cars"
-    );
-    return data;
-  };
-
-  const { data, isLoading } = useQuery(["cars"], getCars);
+  const { data: cars, isLoading } = useQuery(["cars"], getCars);
 
   if (isLoading) return <div>로딩...</div>;
   return (
     <ul>
-      {data.payload.map((carData) => {
+      {cars.map((carData) => {
         const { name, brand, segment, fuelType, amount, imageUrl } =
           carData.attribute;
         const { id, createdAt } = carData;
         return (
           <CarItem
             key={id}
+            id={id}
             createdAt={createdAt}
             name={name}
             brand={brand}
