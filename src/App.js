@@ -1,5 +1,11 @@
+import Test from "./Test";
 function App() {
-  return <div>hi</div>;
+  return (
+    <div>
+      hi
+      <Test tt={"asdf"}></Test>
+    </div>
+  );
 }
 
 export default App;
