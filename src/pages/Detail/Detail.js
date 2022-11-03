@@ -14,9 +14,8 @@ const Detail = () => {
   if (isLoading) return <div>로딩...</div>;
 
   const [carData] = cars.filter((carData) => String(carData.id) === id);
-  const { brand, name, amount, segment, fuelType, imageUrl } =
-    carData.attribute;
-  const { startDate, insurance, additionalProducts } = carData;
+  const { brand, name, segment, fuelType, imageUrl } = carData.attribute;
+  const { startDate, amount, insurance, additionalProducts } = carData;
 
   return (
     <div>

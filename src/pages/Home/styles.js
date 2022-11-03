@@ -7,7 +7,7 @@ export const CarItemContainer = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 15px;
   border: solid black;
   border-width: 0 0 1px 0;
   .brand-and-name {
@@ -35,7 +35,7 @@ export const Image = styled.img`
 
 // Category
 export const CategoryContatiner = styled.div`
-  padding: 10px;
+  padding: 15px;
   border-bottom: solid black 1px;
   display: flex;
   > div:not(:last-child) {

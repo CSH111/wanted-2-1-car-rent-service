@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { IoArrowBack } from "react-icons/io5";
 import { useNavigate, useParams } from "react-router-dom";
 
 import * as S from "./styles";
@@ -23,7 +24,11 @@ const Header = () => {
 
   return (
     <S.Header>
-      {!isHome && <button onClick={handleBack}>back</button>}
+      {!isHome && (
+        <S.Button onClick={handleBack}>
+          <IoArrowBack />
+        </S.Button>
+      )}
       <div className="title">{title}</div>
     </S.Header>
   );

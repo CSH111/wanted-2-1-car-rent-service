@@ -1,15 +1,17 @@
+import * as S from "./styles";
+
 const AdditionalProducts = ({ products }) => {
   return (
     <div>
-      <header>추가상품</header>
-      <ul>
+      <S.InfoHeader>추가상품</S.InfoHeader>
+      <S.InfoList>
         {products.map((product) => (
           <li key={product.name}>
             <div>{product.name}</div>
-            <div>{product.amount}</div>
+            <div>{product.amount.toLocaleString("kr-KR")}</div>
           </li>
         ))}
-      </ul>
+      </S.InfoList>
     </div>
   );
 };

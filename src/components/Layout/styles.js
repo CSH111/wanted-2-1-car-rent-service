@@ -15,3 +15,12 @@ export const Header = styled.header`
     font-weight: 700;
   }
 `;
+
+export const Button = styled.button`
+  border: none;
+  background-color: white;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+`;
