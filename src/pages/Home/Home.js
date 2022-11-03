@@ -10,7 +10,6 @@ const Home = () => {
   const { data: cars, isLoading } = useQuery(queryObj.key, queryObj.fn);
   return (
     <div>
-      Home
       <Category setQueryObj={setQueryObj} />
       <CarList cars={cars} isLoading={isLoading} />
     </div>
