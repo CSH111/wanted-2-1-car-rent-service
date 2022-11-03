@@ -29,15 +29,15 @@ export const CarItemContainer = styled.li`
   .brand-and-name {
     font-size: 14px;
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     > div:not(:last-child) {
-      margin-bottom: 2.5px;
+      margin-bottom: 7.5px;
     }
   }
   .info {
     font-size: 12px;
     display: flex;
-    margin-bottom: 5px;
+    margin-bottom: 7.5px;
     > div:not(:last-child) {
       margin-right: 5px;
     }

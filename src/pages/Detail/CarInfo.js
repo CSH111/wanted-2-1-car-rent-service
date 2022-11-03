@@ -1,7 +1,9 @@
+import formatDate from "../../utils/formatDate";
 import * as S from "./styles";
 
 const CarInfo = ({ segment, fuelType, startDate }) => {
   const title = "차량정보";
+
   return (
     <>
       <S.InfoHeader>{title}</S.InfoHeader>
@@ -16,7 +18,7 @@ const CarInfo = ({ segment, fuelType, startDate }) => {
         </li>
         <li>
           <div>이용 가능일</div>
-          <div>{startDate}</div>
+          <div>{formatDate(startDate)} 부터</div>
         </li>
       </S.InfoList>
     </>

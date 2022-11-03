@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
+import carInfoObject from "../../constants/carInfoObject";
 import * as S from "./styles";
 const CarItem = (props) => {
   const navigate = useNavigate();
@@ -12,9 +13,9 @@ const CarItem = (props) => {
           <div>{props.name}</div>
         </div>
         <div className="info">
-          <div>{props.segment}</div>
+          <div>{carInfoObject[props.segment]}</div>
           <div>/</div>
-          <div>{props.fuelType}</div>
+          <div>{carInfoObject[props.fuelType]}</div>
         </div>
         <div>월 {props.amount.toLocaleString("ko-KR")}원 부터</div>
         <div>{props.createdAt}</div>

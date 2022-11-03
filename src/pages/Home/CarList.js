@@ -8,7 +8,6 @@ const CarList = ({ cars, isLoading }) => {
   return (
     <ul>
       {cars.map((carData) => {
-        console.log(carData);
         const { name, brand, segment, fuelType, imageUrl } = carData.attribute;
         const { id, amount } = carData;
         return (
