@@ -8,6 +8,7 @@ import * as S from "./styles";
 
 const Home = () => {
   const [queryObj, setQueryObj] = useState({ key: ["cars"], fn: getCars });
+
   const { data: cars, isLoading } = useQuery(queryObj.key, queryObj.fn);
   return (
     <S.PageContainer>
