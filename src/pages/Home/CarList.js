@@ -2,7 +2,6 @@ import CarItem from "./CarItem";
 
 const CarList = ({ cars, isLoading }) => {
   if (isLoading) return <div>로딩...</div>;
-  console.log(cars);
   if (cars.length === 0) return <div>차량이 없습니다.</div>;
   return (
     <ul>

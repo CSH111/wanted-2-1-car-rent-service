@@ -1,25 +1,73 @@
+import { useState } from "react";
+
 import { getCars } from "../../apis/cars";
 import { getCarsBySegment } from "../../apis/cars";
+// import RadioButton from "./RadioButton";
+import * as S from "./styles";
 
 const Category = ({ setQueryObj }) => {
-  const HandleClickAllType = () => setQueryObj({ key: ["cars"], fn: getCars });
-  const HandleClickCType = () =>
+  const handleClickAllType = (e) => {
+    setQueryObj({ key: ["cars"], fn: getCars });
+    setSelectedBtn(e.target.dataset.value);
+  };
+  const handleClickCType = (e) => {
     setQueryObj({ key: ["cars", "C"], fn: () => getCarsBySegment("C") });
-  const HandleClickDType = () =>
-    setQueryObj({ key: ["cars", "D"], fn: () => getCarsBySegment("D") });
-  const HandleClickEType = () =>
-    setQueryObj({ key: ["cars", "E"], fn: () => getCarsBySegment("E") });
-  const HandleClickSUVType = () =>
-    setQueryObj({ key: ["cars", "SUV"], fn: () => getCarsBySegment("SUV") });
+    setSelectedBtn(e.target.dataset.value);
+  };
 
+  const handleClickDType = (e) => {
+    setQueryObj({ key: ["cars", "D"], fn: () => getCarsBySegment("D") });
+    setSelectedBtn(e.target.dataset.value);
+  };
+  const handleClickEType = (e) => {
+    setQueryObj({ key: ["cars", "E"], fn: () => getCarsBySegment("E") });
+    setSelectedBtn(e.target.dataset.value);
+  };
+  const handleClickSUVType = (e) => {
+    setQueryObj({ key: ["cars", "SUV"], fn: () => getCarsBySegment("SUV") });
+    setSelectedBtn(e.target.dataset.value);
+  };
+
+  const [selectedBtn, setSelectedBtn] = useState("ALL");
+  const isSelected = (val) => selectedBtn === val;
   return (
-    <div>
-      <button onClick={HandleClickAllType}>전체</button>
-      <button onClick={HandleClickCType}>소형</button>
-      <button onClick={HandleClickDType}>중형</button>
-      <button onClick={HandleClickEType}>대형</button>
-      <button onClick={HandleClickSUVType}>SUV</button>
-    </div>
+    <S.CategoryContatiner>
+      <S.Tag
+        selected={isSelected("ALL")}
+        onClick={handleClickAllType}
+        data-value="ALL"
+      >
+        전체
+      </S.Tag>
+      <S.Tag
+        selected={isSelected("C")}
+        onClick={handleClickCType}
+        data-value="C"
+      >
+        소형
+      </S.Tag>
+      <S.Tag
+        selected={isSelected("D")}
+        onClick={handleClickDType}
+        data-value="D"
+      >
+        중형
+      </S.Tag>
+      <S.Tag
+        selected={isSelected("E")}
+        onClick={handleClickEType}
+        data-value="E"
+      >
+        대형
+      </S.Tag>
+      <S.Tag
+        selected={isSelected("SUV")}
+        onClick={handleClickSUVType}
+        data-value="SUV"
+      >
+        SUV
+      </S.Tag>
+    </S.CategoryContatiner>
   );
 };
 
