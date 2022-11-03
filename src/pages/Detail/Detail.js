@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 
-import getCars from "../../apis/getCars";
+import { getCars } from "../../apis/cars";
 import AdditionalProducts from "./AdditionalProducts";
 import CarInfo from "./CarInfo";
 import Insurance from "./Insurance";
