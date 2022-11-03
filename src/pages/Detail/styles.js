@@ -1,12 +1,21 @@
 import styled from "styled-components";
 
+// page
+
+export const Message = styled.div`
+  font-size: 17px;
+  font-weight: 700;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 //main
 export const Image = styled.img`
   max-width: 100%;
 `;
 export const MainContainer = styled.div`
-  border-bottom: 1px solid black;
-  /*  */
   display: flex;
   flex-direction: column;
   .brand-and-name {

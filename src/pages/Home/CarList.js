@@ -1,8 +1,10 @@
 import CarItem from "./CarItem";
+import * as S from "./styles";
 
 const CarList = ({ cars, isLoading }) => {
-  if (isLoading) return <div>로딩...</div>;
-  if (cars.length === 0) return <div>차량이 없습니다.</div>;
+  if (isLoading) return <S.Message className="msg">불러오는 중</S.Message>;
+  if (cars.length === 0)
+    return <S.Message className="msg">차량이 없습니다.</S.Message>;
   return (
     <ul>
       {cars.map((carData) => {

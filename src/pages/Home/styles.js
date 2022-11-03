@@ -2,6 +2,22 @@ import styled from "styled-components";
 
 import { default as T } from "../../components/Tag";
 
+//page
+export const PageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+`;
+
+export const Message = styled.div`
+  font-size: 17px;
+  font-weight: 700;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 // Caritem
 export const CarItemContainer = styled.li`
   display: flex;
