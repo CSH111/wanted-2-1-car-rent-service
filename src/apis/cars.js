@@ -8,6 +8,12 @@ export const getCars = async () => {
 };
 
 export const getCarsBySegment = async (segment) => {
+  if (!segment || segment === "ALL") {
+    const { data } = await axios.get(
+      `https://preonboarding.platdev.net/api/cars`
+    );
+    return data.payload;
+  }
   const { data } = await axios.get(
     `https://preonboarding.platdev.net/api/cars?segment=${segment}`
   );

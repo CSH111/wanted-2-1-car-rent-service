@@ -1,4 +1,5 @@
 const carInfoObject = {
+  ALL: "전체",
   C: "소형",
   D: "중형",
   E: "대형",

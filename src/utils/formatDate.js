@@ -5,6 +5,7 @@ const formatDate = (date) => {
     day: "numeric",
     weekday: "short",
   };
+
   const formattedDate = originalDate.toLocaleDateString("kr-KR", options);
   return formattedDate;
 };

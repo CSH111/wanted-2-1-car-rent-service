@@ -1,30 +1,12 @@
 import { useState } from "react";
 
-import { getCars } from "../../apis/cars";
 import { getCarsBySegment } from "../../apis/cars";
-// import RadioButton from "./RadioButton";
+import carInfoObject from "../../constants/carInfoObject";
 import * as S from "./styles";
 
-const Category = ({ setQueryObj }) => {
-  const handleClickAllType = (e) => {
-    setQueryObj({ key: ["cars"], fn: getCars });
-    setSelectedBtn(e.target.dataset.value);
-  };
-  const handleClickCType = (e) => {
-    setQueryObj({ key: ["cars", "C"], fn: () => getCarsBySegment("C") });
-    setSelectedBtn(e.target.dataset.value);
-  };
-
-  const handleClickDType = (e) => {
-    setQueryObj({ key: ["cars", "D"], fn: () => getCarsBySegment("D") });
-    setSelectedBtn(e.target.dataset.value);
-  };
-  const handleClickEType = (e) => {
-    setQueryObj({ key: ["cars", "E"], fn: () => getCarsBySegment("E") });
-    setSelectedBtn(e.target.dataset.value);
-  };
-  const handleClickSUVType = (e) => {
-    setQueryObj({ key: ["cars", "SUV"], fn: () => getCarsBySegment("SUV") });
+const Category = ({ setQueryObj, tags }) => {
+  const handleClick = (e, tag) => {
+    setQueryObj({ key: ["cars", tag], fn: () => getCarsBySegment(tag) });
     setSelectedBtn(e.target.dataset.value);
   };
 
@@ -32,41 +14,16 @@ const Category = ({ setQueryObj }) => {
   const isSelected = (val) => selectedBtn === val;
   return (
     <S.CategoryContatiner>
-      <S.Tag
-        selected={isSelected("ALL")}
-        onClick={handleClickAllType}
-        data-value="ALL"
-      >
-        전체
-      </S.Tag>
-      <S.Tag
-        selected={isSelected("C")}
-        onClick={handleClickCType}
-        data-value="C"
-      >
-        소형
-      </S.Tag>
-      <S.Tag
-        selected={isSelected("D")}
-        onClick={handleClickDType}
-        data-value="D"
-      >
-        중형
-      </S.Tag>
-      <S.Tag
-        selected={isSelected("E")}
-        onClick={handleClickEType}
-        data-value="E"
-      >
-        대형
-      </S.Tag>
-      <S.Tag
-        selected={isSelected("SUV")}
-        onClick={handleClickSUVType}
-        data-value="SUV"
-      >
-        SUV
-      </S.Tag>
+      {tags.map((tag) => (
+        <S.Tag
+          key={tag}
+          selected={isSelected(tag)}
+          data-value={tag}
+          onClick={(e) => handleClick(e, tag)}
+        >
+          {carInfoObject[tag]}
+        </S.Tag>
+      ))}
     </S.CategoryContatiner>
   );
 };
