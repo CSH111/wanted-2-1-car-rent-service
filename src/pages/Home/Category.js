@@ -5,20 +5,21 @@ import carInfoObject from "../../constants/carInfoObject";
 import * as S from "./styles";
 
 const Category = ({ setQueryObj, tags }) => {
+  const [selectedBtn, setSelectedBtn] = useState("ALL");
+
   const handleClick = (e, tag) => {
     setQueryObj({ key: ["cars", tag], fn: () => getCarsBySegment(tag) });
-    setSelectedBtn(e.target.dataset.value);
+    setSelectedBtn(tag);
   };
 
-  const [selectedBtn, setSelectedBtn] = useState("ALL");
   const isSelected = (val) => selectedBtn === val;
+
   return (
     <S.CategoryContatiner>
       {tags.map((tag) => (
         <S.Tag
           key={tag}
           selected={isSelected(tag)}
-          data-value={tag}
           onClick={(e) => handleClick(e, tag)}
         >
           {carInfoObject[tag]}
